@@ -52,7 +52,7 @@ const Citas = () => {
         <table className="container table table-bordered table-striped">
           <thead className="table-primary">
             <tr>
-              <th>Identificación Paciente</th>
+              <th>Id Paciente</th>
               <th>Nombre Paciente</th>
               <th>Nombre Medico</th>
               <th>Fecha</th>
