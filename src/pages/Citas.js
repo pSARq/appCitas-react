@@ -19,6 +19,7 @@ const Citas = () => {
   
 
   const todasLasCitas = () => {
+    setVacio(false)
     Consumer.findAll()
       .then((response) => {
         if (response.ok) {
@@ -60,8 +61,8 @@ const Citas = () => {
             </tr>
           </thead>
           <tbody>
-      		{!isLoaded && <div>Cargando...</div>}
-		  	{citas.elements.lenght === 0 && <div>No hay citas</div>}
+      		{!isLoaded && <h3>Cargando...</h3>}
+		  	{citas.elements.lenght === 0 && <h3>No hay citas</h3>}
 	  		{vacio === true && <h3>No exite usuario con ese id</h3>}
             {listaCitas.map((cita) => (
               <tr key={cita.id}>
