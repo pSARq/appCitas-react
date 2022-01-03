@@ -46,7 +46,6 @@ const Citas = () => {
         </button>
       </div>
 
-      {!isLoaded && <div>Cargando...</div>}
       <div className="container mt-2">
         <h1>Lista de Citas</h1>
         <table className="container table table-bordered table-striped">
@@ -61,7 +60,8 @@ const Citas = () => {
             </tr>
           </thead>
           <tbody>
-		  {citas.elements.lenght === 0 && <div>No hay citas</div>}
+      		{!isLoaded && <div>Cargando...</div>}
+		  	{citas.elements.lenght === 0 && <div>No hay citas</div>}
 	  		{vacio === true && <h3>No exite usuario con ese id</h3>}
             {listaCitas.map((cita) => (
               <tr key={cita.id}>

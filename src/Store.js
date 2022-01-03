@@ -4,8 +4,7 @@ import Reducer from './Redux/Reducer';
 const initialState = {
     citas: {
         elements: []
-    },
-    mensage: {}
+    }
 };
 const Store = createContext(initialState);
 
