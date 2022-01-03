@@ -1,34 +1,19 @@
-import { Provider, connect } from 'react-redux';
-import {store} from './config/store'
-import CounterActions from './actions/counter'
+import { StoreProvider } from "./Store";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Citas from "./pages/Citas";
+import NotFound from "./pages/NotFound";
 import './App.css';
-
-
-const CounterComponent = ({ counter, incrementarContador, decrementarContador }) => (
-  <header>
-    <div>{counter.count}</div>
-    <button onClick={incrementarContador} >Incrementar</button>
-    <button onClick={decrementarContador} >Decrementar</button>
-  </header>
-)
-
-const mapStateToProps = ({counter}) => ({
-  counter, 
-})
-
-const mapDispatchToProps = () => ({
-  ...CounterActions
-})
-
-const ConnecedCounterComponent = connect(mapStateToProps, mapDispatchToProps())(CounterComponent)
 
 function App() {
   return (
-    <Provider store={store} >
-    <div className="App">
-      <ConnecedCounterComponent />
-    </div>
-    </Provider>
+    <StoreProvider>
+      <Router>
+          <Routes>
+            <Route exact path="/" element={<Citas />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+      </Router>
+    </StoreProvider>
   );
 }
 
